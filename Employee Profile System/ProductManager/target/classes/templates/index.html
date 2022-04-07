@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Employee Management</title>
+</head>
+<body>
+<div align="center">
+  <h1>Employee List</h1>
+  <a href="new">Create New Employee</a>
+  <br/><br/>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>Emp ID</th>
+      <th>EmpFirstName</th>
+      <th>EmpLastName</th>
+      <th>DOB</th>
+      <th>DOj</th>
+      <th>Email</th>
+      <th>MobileNumber</th>
+      <th>Salary</th>
+      <th>Actions</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e : ${empList}">
+      <td th:text="${e.id}">Emp ID</td>
+      <td th:text="${e.fname}">EmpFirstName</td>
+      <td th:text="${e.lname}">EmpLastName</td>
+      <td th:text="${e.dob}">DOB</td>
+      <td th:text="${e.doj}">DOj</td>
+      <td th:text="${e.email}">Email</td>
+      <td th:text="${e.mnumber}">MobileNumber</td>
+      <td th:text="${e.salary}">Salary</td>
+      <td>
+        <a th:href="@{'/edit/' + ${e.id}}">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{'/delete/' + ${e.id}}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
